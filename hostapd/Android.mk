@@ -800,7 +800,7 @@ LOCAL_C_INCLUDES = $(INCLUDES)
 LOCAL_SHARED_LIBRARIES := libc libcutils
 LOCAL_COPY_HEADERS_TO := libhostapd_client
 LOCAL_COPY_HEADERS := hostapd$(HOSTAPD_VER)/src/common/wpa_ctrl.h
-include $(BUILD_SHARED_LIBRARY)
+include $(BUILD_STATIC_LIBRARY)
 
 include $(LOCAL_PATH)/hostapd$(HOSTAPD_VER)/hostapd/clearvars
 endif
