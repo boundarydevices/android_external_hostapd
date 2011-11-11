@@ -790,6 +790,15 @@ LOCAL_SRC_FILES := $(addprefix hostapd$(HOSTAPD_VER)/,$(OBJS))
 LOCAL_C_INCLUDES := $(INCLUDES)
 include $(BUILD_EXECUTABLE)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := hostapd.conf
+LOCAL_MODULE_TAGS := optional eng debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/wifi
+LOCAL_SRC_FILES := hostapd$(HOSTAPD_VER)/hostapd/android.conf
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/hostapd$(HOSTAPD_VER)/hostapd/android.conf:data/hostapd/hostapd.conf
+include $(BUILD_PREBUILT)
+
 OBJS_c = src/common/wpa_ctrl.c src/utils/os_$(CONFIG_OS).c
 include $(CLEAR_VARS)
 LOCAL_MODULE = libhostapd_client
